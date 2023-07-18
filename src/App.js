@@ -9,11 +9,20 @@ function App() {
   Define state variables for 
   contacts and appointments 
   */
+const [ contacts, setContacts ] = useState([]);
+const [ appointments, setAppointments ] = useState([]);
 
   /*
   Implement functions to add data to
   contacts and appointments
   */
+ const addContactData = () => {
+  setContacts(prevContacts => [...prevContacts, newContact ]);
+ }
+
+ const addAppointmentData = () => {
+  setAppointments(prevAppointments => [...prevAppointments, newAppointment]);
+ }
 
   const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={ <Root/> }>
