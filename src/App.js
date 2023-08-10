@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route, Navigate } from "react-router-dom"
 import Root, { ROUTES } from "./components/root/Root";
 import { AppointmentsPage } from "./containers/appointmentsPage/AppointmentsPage";
@@ -17,11 +17,11 @@ const [ appointments, setAppointments ] = useState([]);
   contacts and appointments
   */
  const addContactData = () => {
-  setContacts(prevContacts => [...prevContacts, newContact ]);
+  setContacts(prevContacts => [...prevContacts, contacts]);
  }
 
  const addAppointmentData = () => {
-  setAppointments(prevAppointments => [...prevAppointments, newAppointment]);
+  setAppointments(prevAppointments => [...prevAppointments, appointments]);
  }
 
   const router = createBrowserRouter(createRoutesFromElements(
