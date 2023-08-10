@@ -35,9 +35,9 @@ export const ContactsPage = ({ contacts, addContact }) => {
   contacts array variable in props
   */
  useEffect(() => {
-  contacts.find((contact) => contact.name === name) ? setIsDuplicate(true) : setIsDuplicate(false);
+  contacts.find((contact) => contact?.name === name) ? setIsDuplicate(true) : setIsDuplicate(false);
 
- }, [name, contacts, isDuplicate])
+ }, [name, contacts])
 
   return (
     <div>

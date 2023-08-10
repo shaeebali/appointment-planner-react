@@ -16,11 +16,11 @@ const [ appointments, setAppointments ] = useState([]);
   Implement functions to add data to
   contacts and appointments
   */
- const addContactData = () => {
+ const addContact = () => {
   setContacts(prevContacts => [...prevContacts, contacts]);
  }
 
- const addAppointmentData = () => {
+ const addAppointment = () => {
   setAppointments(prevAppointments => [...prevAppointments, appointments]);
  }
 
