@@ -19,6 +19,7 @@ export const ContactForm = ({
           onChange={(e) => setName(e.target.value)}
           required
           placeholder="Contact Name"
+          aria-label="Contact Name"
         />
       </label>
       <br />
@@ -29,7 +30,9 @@ export const ContactForm = ({
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
           required
+          pattern="[1-9][0-9]{2}-[1-9][0-9]{2}-[0-9]{4}"
           placeholder="Telephone Number"
+          aria-label="Contact Phone"
         />
       </label>
       <br />
@@ -41,11 +44,11 @@ export const ContactForm = ({
           onChange={(e) => setEmail(e.target.value)}
           required
           placeholder="Email Address"
-          pattern="[1-9][0-9]{2}-[1-9][0-9]{2}-[0-9]{4}" //mask for US numbers
+          aria-label="Email Address"
         />
       </label>
       <br />
-      <input type="submit" value="Add Contact" />
+      <input type="submit" value="Add Contact" aria-label="Add Contact" />
     </form>
   );
 };

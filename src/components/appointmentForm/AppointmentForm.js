@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { ContactPicker } from "../contactPicker/ContactPicker";
 
 const getTodayString = () => {
@@ -10,7 +10,7 @@ const getTodayString = () => {
 
 export const AppointmentForm = ({
   contacts,
-  title,
+  name,
   setTitle,
   contact,
   setContact,
@@ -21,13 +21,17 @@ export const AppointmentForm = ({
   handleSubmit
 }) => {
 
+  const contactNames = useMemo(() => {
+    return contacts.map((contact) => contact.name);
+  }, [contacts]);
+
   return (
     <form onSubmit={handleSubmit}>
       <label>
         <input
           type="text"
-          name="title"
-          value={title}
+          name="name"
+          value={name}
           onChange={(e) => setTitle(e.target.value)}
           required
           placeholder="Appointment Title"
@@ -38,7 +42,7 @@ export const AppointmentForm = ({
         <ContactPicker
           name="contact"
           value={contact}
-          contacts={getContactNames()}
+          contacts={contactNames}
           onChange={(e) => setContact(e.target.value)}
           placeholder="Appointment With"
         />
@@ -52,6 +56,7 @@ export const AppointmentForm = ({
           value={date}
           onChange={(e) => setDate(e.target.value)}
           required
+          aria-label="Date Picker"
         />
       </label>
       <br />
@@ -62,6 +67,7 @@ export const AppointmentForm = ({
           value={time}
           onChange={(e) => setTime(e.target.value)}
           required
+          aria-label="Time Picker"
         />
       </label>
       <br />
